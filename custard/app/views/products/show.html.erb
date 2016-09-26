@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Facility:</strong>
+  <%= @product.facility_id %>
+</p>
+
+<p>
+  <strong>Flavor:</strong>
+  <%= @product.flavor %>
+</p>
+
+<p>
+  <strong>Mid:</strong>
+  <%= @product.mid %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @product.state %>
+</p>
+
+<p>
+  <strong>Packaged:</strong>
+  <%= @product.packaged %>
+</p>
+
+<p>
+  <strong>Opened:</strong>
+  <%= @product.opened %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

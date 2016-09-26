@@ -1,0 +1,43 @@
+facility_id,flavor,state,mid,packaged,opened
+Dairy Queen Store,vanilla,stock,87231232,2016-05-25,
+Dairy Queen Store,vanilla,stock,87231239,2016-05-25,
+Dairy Queen Store,vanilla,In-use,87231288,2016-05-25,2016-08-05
+Dairy Queen Store,vanilla,ordered,,,
+Dairy Queen Store,vanilla,In-transit,9012343,2016-08-26,
+Dairy Queen Store,chocolate,In-use,87418768,2016-06-28,2016-08-05
+Dairy Queen Store,chocolate,stock,87418771,2016-06-28,
+Dairy Queen Store,chocolate,stock,87418773,2016-06-28,
+Dairy Queen Store,chocolate,stock,87418775,2016-06-28,
+Dairy Queen Store,chocolate,stock,87418776,2016-06-28,
+Dairy Queen Store,chocolate,ordered,,,
+Dairy Queen Store,strawberry,In-use,87419000,2016-04-13,2016-08-16
+Dairy Queen Store,strawberry,stock,87419001,2016-04-13,
+Dairy Queen Store,strawberry,stock,87419002,2016-04-13,
+Dairy Queen Store,strawberry,ordered,,,
+Dairy Queen Store,strawberry,In-transit,87419003,2016-04-13,
+DQ Grill & Chill  Hop,vanilla,In-use,87231269,2016-05-25,2016-08-05
+DQ Grill & Chill  Hop,vanilla,In-use,87231268,2016-05-25,2016-08-16
+DQ Grill & Chill  Hop,vanilla,stock,87231267,2016-05-25,
+DQ Grill & Chill  Hop,vanilla,In-transit,87231270,2016-08-16,
+DQ Grill & Chill  Hop,chocolate,In-use,87418778,2016-06-28,2016-08-05
+DQ Grill & Chill  Hop,chocolate,In-use,87418783,2016-06-28,2016-08-16
+DQ Grill & Chill  Hop,chocolate,stock,87418779,2016-06-28,
+DQ Grill & Chill  Hop,chocolate,stock,87418780,2016-06-28,
+DQ Grill & Chill  Hop,chocolate,stock,87418781,2016-06-28,
+DQ Grill & Chill  Hop,chocolate,stock,87418781,2016-06-28,
+DQ Grill & Chill  Hop,strawberry,In-use,87419006,2016-04-13,2016-08-05
+DQ Grill & Chill  Hop,strawberry,In-use,87419007,2016-04-13,2016-08-16
+DQ Grill & Chill  Hop,strawberry,stock,87419008,2016-04-13,
+DQ Grill & Chill  Hop,strawberry,stock,87419009,2016-04-13,
+DQ Grill & Chill  Hop,strawberry,ordered,,,
+DQ Grill & Chill  SLP,vanilla,In-use,87419023,2016-05-25,2016-08-02
+DQ Grill & Chill  SLP,vanilla,In-transit,87419024,2016-08-16,
+DQ Grill & Chill  SLP,chocolate,In-use,87418792,2016-06-28,2016-08-09
+DQ Grill & Chill  SLP,chocolate,In-use,87418793,2016-06-28,2016-08-08
+DQ Grill & Chill  SLP,chocolate,stock,87418794,2016-06-28,
+DQ Grill & Chill  SLP,chocolate,stock,87418795,2016-06-28,
+DQ Grill & Chill  SLP,chocolate,stock,87418796,2016-06-28,
+DQ Grill & Chill  SLP,strawberry,In-use,87419012,2016-04-13,2016-08-04
+DQ Grill & Chill  SLP,strawberry,stock,87419013,2016-04-13,
+DQ Grill & Chill  SLP,strawberry,stock,87419014,2016-04-13,
+DQ Grill & Chill  SLP,strawberry,In-transit,87419015,2016-04-13,

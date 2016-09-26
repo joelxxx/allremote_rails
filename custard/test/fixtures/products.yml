@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  facility_id: 1
+  flavor: MyString
+  mid: 1
+  state: MyString
+  packaged: 2016-08-21 15:31:38
+  opened: 2016-08-21 15:31:38
+
+two:
+  facility_id: 1
+  flavor: MyString
+  mid: 1
+  state: MyString
+  packaged: 2016-08-21 15:31:38
+  opened: 2016-08-21 15:31:38

@@ -1,0 +1,100 @@
+
+
+<script type="text/javascript">
+var debug_area;
+var log_level=1
+
+function debug_log(message, msg_level) {
+  if (msg_level >= log_level)
+  {
+    $(debug_area).html($(debug_area).html() + message + "<br/>");
+  }
+}
+
+
+function setupPage()
+{
+  debug_area = $("#debug_area");
+  debug_log("Setup Done",1);
+  debug_log("logging level = " + log_level, 3);
+  debug_log("params[:uv] = " + "<%=params[:uv] %>",0)
+}
+
+</script>
+
+<p id="notice"><%= notice %></p>
+
+<%= select("post", :facility_id,  options_for_select(Facility.pluck(:name, :id),@facid)) %>
+
+<h1><%= @facility.name %></h1>
+<h2><%= @facility.address %></h2>
+
+
+<table class="prod_table"  >
+  <thead>
+    <tr>
+      <th>Flavor</th>
+      <th>M.ID</th>
+      <th>state</th>
+      <th>Packaged</th>
+      <th>Opened</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @prd.each do |product| %>
+      <tr class="<%= product.state %>">
+        <td><%= product.flavor %></td>
+        <td><%= product.mid %></td>
+        <td><%= product.state %></td>
+        <td><%= product.packaged %></td>
+        <td><%= product.opened %></td>
+      </tr>
+    <% end %>
+  </tbody> 
+</table>             
+
+<br>
+<div id="debug_area">Debug Area</div>
+
+
+<script type="text/javascript">
+
+window.onload = setupPage;
+
+function change_facility()
+{
+    var fid=$('select[id="post_facility_id"]').val();
+    var newurl = window.location.pathname + "?facility=" + fid;
+    window.location.replace(newurl);
+}
+
+$(document).ready(function () {
+  $(function($) {
+    // Hook into changes on the facility drop down 
+    var facility_id = "<%= @facid %>"
+    $("#post_facility_id").change(function() {
+      change_facility()
+    });
+  })
+});
+
+
+</script>
+
+
+<style>
+.stock {
+  background-color: #dddddd;
+}
+.ordered {
+  background-color: #88ffff;
+}
+.In-use {
+  background-color: #ff88ff;
+}
+.In-transit {
+  background-color: #ffff88;
+}
+
+</style>
+

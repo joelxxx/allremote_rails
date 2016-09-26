@@ -1,0 +1,13 @@
+Follow-along
+
+rails --version
+Rails 4.2.3
+
+--------- FROM GIT ------------------
+git clone https://github.com/joelxxx/allremote_rails.git
+cd allremote_rails/custard
+bundle install
+rake db:migrate
+rails s
+
+
