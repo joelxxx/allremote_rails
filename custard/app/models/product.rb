@@ -1,3 +1,5 @@
+require 'csv'
+
 class Product < ActiveRecord::Base
 
   def self.importCSV(file)

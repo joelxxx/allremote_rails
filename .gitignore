@@ -5,9 +5,12 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+custard/.bundle
+
+notes/prep
+notes/talking points
 
 # Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
-/tmp
+custard/log/*
+!custard/log/.keep
+custard/tmp

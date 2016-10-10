@@ -1,4 +1,5 @@
 
+require 'csv'
 class Facility < ActiveRecord::Base
 
   def self.importCSV(file)
@@ -19,6 +20,11 @@ class Facility < ActiveRecord::Base
       end
     end
   end
+
+  def self.hello()
+    return "hello"
+  end
+  
 
   has_many :product
 
