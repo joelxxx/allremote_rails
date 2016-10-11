@@ -4,10 +4,39 @@ rails --version
 Rails 4.2.3
 
 --------- FROM GIT ------------------
-git clone https://github.com/joelxxx/allremote_rails.git
-cd allremote_rails/custard
-bundle install
-rake db:migrate
-rails s
+first console
+  git clone https://github.com/joelxxx/allremote_rails.git
+  cd allremote_rails/custard
+  bundle install
+  rake db:migrate
+  rails s
 
+second console
+  rails c
+
+third console
+  psql
+  (or)
+  cd db
+  sqlite3 development.sqlite3
+
+
+
+
+in console window
+    arr_of_arrs = CSV.read("facilities.csv")
+     => [["name", "address"], ["Dairy Queen Store", "1800 Main ST, Hopkins, MN 55343"], ["DQ Grill & Chill  Hop", "510 Blake Rd N, Hopkins, MN 55343"], ["DQ Grill & Chill  SLP", "5001 Excelsior Blvd, St Louis Park, MN 55416"]]
+
+    table = CSV.read("custards_id.csv", headers: true)
+    table.class
+     => CSV::Table
+     table[0].class
+     => CSV::Row
+     table[0]
+     => #<CSV::Row "facility_id":"1" "flavor":"vanilla" "state":"stock" "mid":"87231232" "packaged":"2016-05-25" "opened":nil>
+
+     table[0].to_hash
+
+
+  
 

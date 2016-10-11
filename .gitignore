@@ -14,3 +14,6 @@ notes/talking points
 custard/log/*
 !custard/log/.keep
 custard/tmp
+
+custard/db/development.sqlite3
+custard/Gemfile.lock
