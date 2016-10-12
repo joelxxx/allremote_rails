@@ -24,8 +24,8 @@ third console
 
 
 in console window
-    arr_of_arrs = CSV.read("facilities.csv")
-     => [["name", "address"], ["Dairy Queen Store", "1800 Main ST, Hopkins, MN 55343"], ["DQ Grill & Chill  Hop", "510 Blake Rd N, Hopkins, MN 55343"], ["DQ Grill & Chill  SLP", "5001 Excelsior Blvd, St Louis Park, MN 55416"]]
+    arr_of_arrs = CSV.read("custards_id.csv")
+     => 
 
     table = CSV.read("custards_id.csv", headers: true)
     table.class
@@ -37,6 +37,92 @@ in console window
 
      table[0].to_hash
 
+      => {"facility_id"=>"1", "flavor"=>"vanilla", "state"=>"stock", "mid"=>"87231239", "packaged"=>"2016-05-25", "opened"=>nil}
 
-  
+
+Put data into the application using CSV import
+  http://localhost:3000/facilities
+  choose file facilies.csv
+  import complete ..... controller does a redirect with notice
+
+  http://localhost:3000/products
+  choose file   products_id.csv
+  -- this would be formed after you export facilities and then put facility_id's into the original products.csv file
+
+  http://localhost:3000/facilities/prod_list
+
+
+DRY the model using concerns
+  cd allremote_rails/custard/app/models/concerns
+  cp ../../../../notes/code/csv_model_mixin.rb .
+
+
+DRY the controller
+
+  only thing different is the call to the model.importCSV()
+    Product.importCSV(params[:file])
+    Facility.importCSV(params[:file])
+
+  How do we make common code from this?
+
+  experiment in the console window
+    fc.controller_name
+     => "facilities"
+    2.2.1 :027 > fc.controller_name.classify
+     => "Facility"
+    2.2.1 :028 > fc.controller_name.classify.constantize.hello()
+     => "hello"    
+
+  And so the common code looks like this
+      def import
+        @model_name = controller_name.classify
+        logger.info("mixin ---> model name is #{@model_name}")
+
+        @model_name.constantize.importCSV(params[:file])
+        redirect_to :action => 'index', notice: "import Complete"
+      end
+
+  cd allremote_rails/custard/app/controllers/concerns
+  cp ../../../../notes/code/
+  cp ../../../../notes/code/csv_controller_mixin.rb .
+
+  in the controllers replace the method import() with
+    include CsvControllerMixin
+
+DRY the form part of the views
+
+  app/views/facilities/index.html.erb
+    <%= form_tag import_facilities_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+    <% end %>
+
+  we need to parameterize on where the form is submitted 
+      import_facilities_path
+      import_products_path
+
+  cd app/helpers
+
+    def csv_upload link
+      html = "<p>Import from CSV file</p>\n".html_safe
+      html << form_tag( link, multipart: true )
+        html << '  <input type="file" name="file" id="file" />'.html_safe
+        html << '  <input type="submit" name="commit" value="Import" />'.html_safe
+      html << "</form><br/>".html_safe
+    end
+
+  app/views/facilities/index.html.erb
+    delete old form
+    add in call to the new function
+      <%= csv_upload import_facilities_path %>
+  app/views/products/index.html.erb
+      <%= csv_upload import_products_path %>
+
+
+restart rails
+from sqlite>
+  delete from products;
+  delete from facilities;
+
+and re-import using the DRY version of the MVC support for CSV import & export
 
